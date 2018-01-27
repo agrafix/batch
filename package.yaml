@@ -1,0 +1,43 @@
+name:                batch
+version:             0.1.0.0
+github:              "agrafix/batch"
+license:             BSD3
+author:              "Alexander Thiemann"
+maintainer:          "mail@athiemann.net"
+copyright:           "2017 Alexander Thiemann <mail@athiemann.net>"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+synopsis:            Simplify queuing up data and processing it in batch.
+category:            Data
+description:         Simplify queuing up data and processing it in batch.
+
+dependencies:
+  - base >= 4.7 && < 5
+  - stm >= 2.4
+  - timespan >= 0.3
+
+library:
+  source-dirs: src
+  dependencies:
+    - lifted-base >= 0.2.3
+    - monad-control >= 1.0
+    - mtl >= 2.2
+    - transformers-base >= 0.4
+    - async >= 2.0
+    - lifted-async >= 0.9
+  ghc-options: -Wall
+
+tests:
+  batch-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - batch
+      - hspec >= 2.4
